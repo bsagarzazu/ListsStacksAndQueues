@@ -45,11 +45,12 @@ namespace Common
             else
             {
                 IntListNode node = First;
-                while (node != null)
+                while (node.Next != null)
                 {
                     node = node.Next;
                 }
-                node.Next = new IntListNode(value);
+                IntListNode newNode = new IntListNode(value);
+                node.Next = newNode;
             }
         }
 
