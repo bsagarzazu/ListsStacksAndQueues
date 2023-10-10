@@ -38,11 +38,23 @@ namespace Common
         public void Add(int value)
         {
             //TODO #1: add a new integer to the end of the list
+
         }
 
         private IntListNode GetNode(int index)
         {
             //TODO #2: Return the element in position 'index'
+            int currentPos = 0;
+            IntListNode currentNode = First;
+            while (currentPos < index && currentNode.Next != null)
+            {
+                currentNode = currentNode.Next;
+                currentPos++;
+            }
+            if (currentPos == index)
+            {
+                return currentNode; 
+            }
             return null;
         }
 

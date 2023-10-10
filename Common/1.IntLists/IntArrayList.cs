@@ -10,6 +10,7 @@ namespace Common
         public IntArrayList(int n)
         {
             //TODO #1: initialize Values with an array of size n
+            Values = new int[n];
         }
         public string AsString()
         {
@@ -26,6 +27,7 @@ namespace Common
         public void Add(int value)
         {
             //TODO #2: add a new integer to the end of the list
+
         }
 
         public int Get(int index)
@@ -38,8 +40,8 @@ namespace Common
         
         public int Count()
         {
-            //TODO #4: return the number of elements on the lis
-            return 0;
+            //TODO #4: return the number of elements on the list
+            return NumElements;
         }
 
 
@@ -53,6 +55,7 @@ namespace Common
         public void Clear()
         {
             //TODO #6: remove all the elements on the list
+            NumElements = 0;
         }
     }
 }
