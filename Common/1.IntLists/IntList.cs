@@ -38,7 +38,19 @@ namespace Common
         public void Add(int value)
         {
             //TODO #1: add a new integer to the end of the list
-
+            if (First == null)
+            {
+                First = new IntListNode(value); 
+            }
+            else
+            {
+                IntListNode node = First;
+                while (node != null)
+                {
+                    node = node.Next;
+                }
+                node.Next = new IntListNode(value);
+            }
         }
 
         private IntListNode GetNode(int index)
@@ -62,25 +74,37 @@ namespace Common
         public int Get(int index)
         {
             //TODO #3: return the element on the index-th position. YOU MUST USE GetNode(int). O if the position is out of bounds
-            return 0;
+            return GetNode(index).Value;
         }
 
         
         public int Count()
         {
             //TODO #4: return the number of elements on the list
-            return 0;
+            IntListNode node = First;
+            int elementNum = 0;
+            while (node != null)
+            {
+                node = node.Next;
+                elementNum++;
+            }
+            return elementNum;
         }
         
         public void Remove(int index)
         {
             //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds
+            if (GetNode(index) != null)
+            {
+                GetNode(index - 1).Next = null;
+            }
         }
 
         
         public void Clear()
         {
             //TODO #6: remove all the elements on the list
+            First = null;
         }
     }
 }
