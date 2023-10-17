@@ -16,6 +16,7 @@ namespace Common
     public class IntList : IList
     {
         private IntListNode First = null;
+        private IntListNode Last = null;
         private int numElements = 0;
 
         //This method returns all the elements on the list as a string
@@ -42,16 +43,11 @@ namespace Common
             if (First == null)
             {
                 First = new IntListNode(value);
+                Last = First;
             }
             else
             {
-                IntListNode node = First;
-                while (node.Next != null)
-                {
-                    node = node.Next;
-                }
-                IntListNode newNode = new IntListNode(value);
-                node.Next = newNode;
+                Last = new IntListNode(value);
             }
             numElements++;
         }
@@ -77,7 +73,14 @@ namespace Common
         public int Get(int index)
         {
             //TODO #3: return the element on the index-th position. YOU MUST USE GetNode(int). O if the position is out of bounds
-            return GetNode(index).Value;
+            if (GetNode(index) != null)
+            {
+                return GetNode(index).Value;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         
@@ -106,6 +109,7 @@ namespace Common
         {
             //TODO #6: remove all the elements on the list
             First = null;
+            Last = null;
             numElements = 0;
         }
     }
