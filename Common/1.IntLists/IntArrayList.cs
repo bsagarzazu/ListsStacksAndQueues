@@ -69,10 +69,11 @@ namespace Common
         public void Remove(int index)
         {
             //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds
-            for (int i = index; i <= NumElements; i++)
+            for (int i = index; i < NumElements; i++)
             {
                 Values[i] = Values[i + 1];
             }
+            NumElements--;
         }
 
 

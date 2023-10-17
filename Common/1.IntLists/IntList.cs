@@ -47,7 +47,8 @@ namespace Common
             }
             else
             {
-                Last = new IntListNode(value);
+                Last.Next = new IntListNode(value);
+                Last = Last.Next;
             }
             numElements++;
         }
@@ -69,7 +70,6 @@ namespace Common
             return null;
         }
 
-        
         public int Get(int index)
         {
             //TODO #3: return the element on the index-th position. YOU MUST USE GetNode(int). O if the position is out of bounds
@@ -82,7 +82,6 @@ namespace Common
                 return 0;
             }
         }
-
         
         public int Count()
         {
@@ -93,15 +92,14 @@ namespace Common
         public void Remove(int index)
         {
             //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds
-            if (index == numElements)
+            if (index == 0)
             {
-                GetNode(index - 1).Next = null;
+                First = First.Next;
             }
-            else
+            else if (index = numElements + 1)
             {
-                GetNode(index - 1).Next = GetNode(index + 1);
+
             }
-            numElements--;
         }
 
         
