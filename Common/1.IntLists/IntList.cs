@@ -15,7 +15,8 @@ namespace Common
 
     public class IntList : IList
     {
-        IntListNode First = null;
+        private IntListNode First = null;
+        private int numElements = 0;
 
         //This method returns all the elements on the list as a string
         //Use it as an example on how to access all the elements on the list
@@ -40,7 +41,7 @@ namespace Common
             //TODO #1: add a new integer to the end of the list
             if (First == null)
             {
-                First = new IntListNode(value); 
+                First = new IntListNode(value);
             }
             else
             {
@@ -52,6 +53,7 @@ namespace Common
                 IntListNode newNode = new IntListNode(value);
                 node.Next = newNode;
             }
+            numElements++;
         }
 
         private IntListNode GetNode(int index)
@@ -82,23 +84,21 @@ namespace Common
         public int Count()
         {
             //TODO #4: return the number of elements on the list
-            IntListNode node = First;
-            int elementNum = 0;
-            while (node != null)
-            {
-                node = node.Next;
-                elementNum++;
-            }
-            return elementNum;
+            return numElements;
         }
         
         public void Remove(int index)
         {
             //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds
-            if (GetNode(index) != null)
+            if (index == numElements)
             {
                 GetNode(index - 1).Next = null;
             }
+            else
+            {
+                GetNode(index - 1).Next = GetNode(index + 1);
+            }
+            numElements--;
         }
 
         
@@ -106,6 +106,7 @@ namespace Common
         {
             //TODO #6: remove all the elements on the list
             First = null;
+            numElements = 0;
         }
     }
 }
