@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.ConstrainedExecution;
 
 namespace Common
 {
@@ -92,13 +93,21 @@ namespace Common
         public void Remove(int index)
         {
             //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds
-            if (index == 0)
+            IntListNode node = GetNode(index);
+            if (node == First)
             {
                 First = First.Next;
+                numElements--;
             }
-            else if (index = numElements + 1)
+            else if (node == Last)
             {
-
+                Last = GetNode(index - 1);
+                numElements--;
+            }
+            else if (node != null)
+            {
+                GetNode(index - 1).Next = GetNode(index + 1);
+                numElements--;
             }
         }
 
