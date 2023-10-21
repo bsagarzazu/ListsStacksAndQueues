@@ -39,8 +39,9 @@ namespace Common
                     newValues[i] = Values[i];
                 }
                 newValues[Values.Length] = value;
+                Values = newValues;
             }
-                
+            NumElements++;
         }
 
         public int Get(int index)
