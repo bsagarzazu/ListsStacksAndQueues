@@ -117,4 +117,13 @@ public class GenericList<T> : IGenericList<T>
         Last = null;
         numElements = 0;
     }
+
+    public GenericListNode<T> getFirst()
+    {
+        return First;
+    }
+    public GenericListNode<T> getLast()
+    {
+        return Last;
+    }
 }

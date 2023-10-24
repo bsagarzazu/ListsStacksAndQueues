@@ -1,7 +1,7 @@
 using System;
 namespace Common
 {
-    public class GenericArrayList<T> : IGenericList<T> where T : new()
+    public class GenericArrayList<T> : IGenericList<T>
     {
         T[] Values;
         int NumElements = 0;
@@ -66,7 +66,7 @@ namespace Common
         public void Remove(int index)
         {
             //TODO #5: remove the element on the index-th position. Do nothing if position is out of bounds
-            for (int i = index; i < NumElements; i++)
+            for (int i = index; i + 1 < NumElements; i++)
             {
                 Values[i] = Values[i + 1];
             }
