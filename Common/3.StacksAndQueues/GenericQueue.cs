@@ -58,7 +58,7 @@ namespace Common
          * 
          * Using GenericArrayList
          * Push (n=10000) -> 0.21724 s O(1) (O(n) if there is not space for the new element)
-         * Pop (n=10000) -> 0.65901 s O(1)
+         * Pop (n=10000) -> 0.65901 s O(n) (could be optimized using circular arrays)
          * 
          * My choice -> GenericList
          */
